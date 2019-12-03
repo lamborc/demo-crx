@@ -1,0 +1,55 @@
+{
+  "manifest_version": 2,
+  "name":"The Blockchain Address Service Extendsion",
+  "short_name": "BAS",
+  "version": "0.0.1",
+  "description": "",
+  "homepage_url":"http://bas.ppn.one",
+  "author":"lamborcai",
+  "icons": {
+    "19": "icons/png/basex_logo_38.png",
+    "38": "icons/png/basex_logo_38.png",
+    "128": "icons/png/basex_logo_128.png"
+  },
+  "permissions": [
+    "<all_urls>",
+    "idle",
+    "activeTab",
+    "tabs",
+    "notifications",
+    "alarms",
+    "storage",
+    "unlimitedStorage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "background": {
+    "page": "dist/background/background.html"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/png/basex_logo_38.png",
+      "38": "icons/png/basex_logo_38.png",
+      "128": "icons/png/basex_logo_128.png"      
+    },
+    "default_title": "__MSG_browserAction_title__",
+    "default_popup": "dist/popup/browser-action/index.html"
+  },
+  "web_accessible_resources": [
+
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": [
+
+      ],
+      "matches":[
+        "<all_urls>"
+      ],
+      "run_at":"document_start"
+    }
+  ],
+  "content_security_policy": "script-src 'seft'; object-src 'self'; frame-src 'self';",
+  "default_locale": "en"
+}

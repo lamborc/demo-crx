@@ -1,0 +1,6 @@
+{
+  "browserAction_title":{
+    "messages":"BAS 工具",
+    "description":"A pop-up title when user browser hovers on Browser Action button (browserAction_title)"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "browserAction_title": {
+    "message": "BASex",
+    "description": "A pop-up title when user hovers on Browser Action button (browerAction_title)"
+  }
+}

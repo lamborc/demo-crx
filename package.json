@@ -4,7 +4,26 @@
   "description": "CRX",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "run-s clean build:*",
+    "build:copy": "run-s build:copy:*",
+    "build:copy:src": "shx mkdir -p add-on/dist && shx cp -R add-on/src/* add-on/dist",
+    "build:js": "run-s build:js:*",
+    "build:js:webpack": "webpack -p",
+    "build:minimize-dist": "shx rm -rf add-on/dist/lib add-on/dist/contentScripts/ add-on/dist/bundles/",
+    "build:bundle-all": "echo 'todo ' ",
+    "build:rename-artifacts": "./scripts/rename-artifacts.js",
+    "bundle": "run-s bundle:*",
+    "bundle:firefox": "run-s precache:clean && shx cat add-on/manifest.common.json add-on/manifest.firefox.json | json --deep-merge > add-on/manifest.json && web-ext build -a build/firefox/ && run-s build:rename-artifacts",
+    "clean": "run-p clean:*",
+    "clean:build": "shx rm -rf build/*",
+    "clean:dist": "shx rm -rf add-on/dist",
+    "dev-build": "npx yarn@1.19.2 && npx yarn@1.19.2 build",
+    "firefox": "run-s bundle:firefox && web-ext run --url about:debugging",
+    "precache:clean": "shx rm -rf add-on/dist/precache",
+    "watch": "npm-run-all build:copy --parallel watch:*",
+    "watch:js": "run-p watch:js:*",
+    "watch:js:webpack": "webpack --watch --progress -d --devtool inline-source-map --config ./webpack.config.js",
+    "yarn-build": "npm run dev-build"
   },
   "repository": {
     "type": "git",
@@ -23,10 +42,19 @@
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-syntax-async-generators": "^6.13.0",
+    "cross-env": "^6.0.3",
     "karma": "^4.4.1",
     "karma-cli": "^2.0.0",
     "npm-run-all": "^4.1.5",
+    "shx": "^0.3.2",
+    "simple-progress-webpack-plugin": "^1.1.2",
     "sinon": "^7.5.0",
-    "sinon-chrome": "^3.0.1"
+    "sinon-chrome": "^3.0.1",
+    "terser-webpack-plugin": "^2.2.1",
+    "web-ext": "^3.2.1",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   }
 }
