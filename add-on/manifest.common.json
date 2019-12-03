@@ -20,6 +20,9 @@
     "alarms",
     "storage",
     "unlimitedStorage",
+    "contextMenus",
+    "clipboardWrite",
+    "webNavigation",
     "webRequest",
     "webRequestBlocking"
   ],
@@ -35,6 +38,9 @@
     "default_title": "__MSG_browserAction_title__",
     "default_popup": "dist/popup/browser-action/index.html"
   },
+  "options_ui": {
+    "page":"dist/options/options.html"
+  },
   "web_accessible_resources": [
 
   ],
@@ -42,7 +48,7 @@
     {
       "all_frames": true,
       "js": [
-
+        "dist/bundles/basProxyContentScript.bundle.js"
       ],
       "matches":[
         "<all_urls>"

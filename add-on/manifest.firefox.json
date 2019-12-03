@@ -1,0 +1,29 @@
+{
+  "browser_action": {
+    "browser_style": false
+  },
+  "options_ui": {
+    "browser_style": false
+  },
+  "applications": {
+    "gecko": {
+      "id": "lamborcai@gmail.com",
+      "strict_min_version": "68.0"
+    }
+  },
+  "page_action": {
+    "default_icon": {
+      "128": "icons/bas-httb.svg"
+    },
+    "default_title": "__MSG_pageAction_titleBasHttb__",
+    "default_popup": "dist/popup/page-action/index.html"
+  },
+  "content_scripts": [ ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+httb",
+      "name": "BAS Extendsion: HTTB Protocol Handler",
+      "uriTemplate": "httb://domain#%s"
+    }
+  ]
+}

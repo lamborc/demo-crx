@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
+console.log('>>>')
 const fs = require('fs')
 const glob = require('glob')
 
 const files = glob.sync('./build/*/*.zip')
 
 files.map(async file => {
+  console.log('file>>>>')
   const path = file.split('/')
   console.log('path',path)
   const name = path.pop().split('.zip').shift()
