@@ -60,3 +60,9 @@ typings/
 
 # next.js build output
 .next
+
+#project
+add-on/manifest.json
+add-on/dist
+add-on/webui/
+add-on/ui-kit/
