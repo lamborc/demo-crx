@@ -52,7 +52,7 @@ const commonConfig = {
     ]
   },
   resolve: {
-    extendsions: ['.js','.json'],
+    extensions: ['.js','.json'],
     alias: {
       url: 'iso-url',
       stream: 'readable-stream',
@@ -82,18 +82,10 @@ const bgConfig = merge(commonConfig,{
   name: 'background',
   entry: {
     backgroundPage: './add-on/src/background/background.js'
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        vendors:false,
-        default:false
-
-      }
-    }
   }
 })
+
+console.log(JSON.stringify(bgConfig,null,2))
 
 const uiConfig = merge(commonConfig,{
   name:'ui',
@@ -150,10 +142,11 @@ const proxyContentScriptConfig = merge(commonConfig,{
   }
 })
 
-
+//  bgConfig,
+//    contentScriptsConfig,
+ // proxyContentScriptConfig
 module.exports = [
-  bgConfig,
-  uiConfig,
-  contentScriptsConfig,
-  proxyContentScriptConfig
+
+  bgConfig
+
 ]
