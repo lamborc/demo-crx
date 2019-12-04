@@ -95,7 +95,7 @@ const bgConfig = merge(commonConfig,{
   }
 })
 
-config uiConfig = merge(commonConfig,{
+const uiConfig = merge(commonConfig,{
   name:'ui',
   entry: {
     browserAction: './add-on/src/popup/browser-action/index.js',
@@ -120,7 +120,7 @@ config uiConfig = merge(commonConfig,{
 })
 
 //content scripts injected into tabs
-cosnt contentScriptsConfig = merge(commonConfig, {
+const contentScriptsConfig = merge(commonConfig, {
   name:'contentScripts',
   entry: {
     basProxyContentScriptPayload: './add-on/src/contentScripts/bas-proxy/page.js',
