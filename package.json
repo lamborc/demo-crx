@@ -56,7 +56,7 @@
     "simple-progress-webpack-plugin": "^1.1.2",
     "sinon": "^7.5.0",
     "sinon-chrome": "^3.0.1",
-    "tar": "^5.0.5",
+    "tar": "^5.0.7",
     "terser": "^4.4.2",
     "terser-webpack-plugin": "^2.2.1",
     "web-ext": "^3.2.1",
